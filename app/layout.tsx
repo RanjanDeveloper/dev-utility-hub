@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-zinc-50 dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 antialiased`}
+        className={`${inter.className} min-h-screen bg-zinc-100 dark:bg-linear-to-br dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100 antialiased`}
       >
         <Providers>
     <div className="min-h-screen flex flex-col">
