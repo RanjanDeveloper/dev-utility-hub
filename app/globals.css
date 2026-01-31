@@ -122,7 +122,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  html{
+  scrollbar-gutter: stable;
+  overflow-y: auto;
 }
+}
+
 /* Shiki code block wrapping */
 .shiki,
 .shiki pre {

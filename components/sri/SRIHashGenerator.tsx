@@ -73,7 +73,7 @@ export default function SRIHashGenerator() {
   return (
     <div
       className="max-w-5xl mx-auto p-8 rounded-xl border shadow-sm space-y-6
-  bg-zinc-50 dark:bg-zinc-900
+  bg-white dark:bg-zinc-900
   border-zinc-200 dark:border-zinc-800"
     >
       <Link
@@ -100,7 +100,7 @@ export default function SRIHashGenerator() {
 
       <hr className="border-zinc-200" />
 
-      <div className="min-h-50 flex items-center justify-center transition-all">
+      <div className="min-h-50 flex items-center justify-center transition-all ">
         {loading && <HashSkeleton />}
         {!loading && error && (
           <div className="rounded-md border border-red-300 bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300 px-4 py-3 text-sm">
