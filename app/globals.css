@@ -119,27 +119,56 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  html{
-  scrollbar-gutter: stable;
-  overflow-y: auto;
-}
-}
 
+  html {
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+  }
+
+}
 /* Shiki code block wrapping */
 .shiki,
 .shiki pre {
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-  overflow-x: hidden !important;
-  @apply bg-zinc-50!;
+      
+  overflow-x: auto !important;      
+  overflow-y: hidden;
+  @apply bg-zinc-50! rounded-md!;
 }
 
 /* Optional: nicer line height */
 .shiki code {
-  
   line-height: 1.6;
+}
+
+/* ===== SHIKI LINE NUMBERS (FIXED) ===== */
+
+.shiki {
+  counter-reset: shiki-line;
+  white-space: pre;
+}
+
+.shiki .line {
+  @apply relative pl-14 leading-relaxed;
+}
+
+/* Line numbers */
+.shiki .line::before {
+  counter-increment: shiki-line;
+  content: counter(shiki-line);
+
+  @apply absolute left-0  pr-3 text-right select-none text-zinc-400 dark:text-zinc-500 opacity-70;
+}
+.shiki.wrap pre{
+  @apply whitespace-pre-wrap overflow-x-hidden
+}
+.shiki.wrap .line{
+  
+  @apply pl-14;
+    text-indent: -3.5rem;
+
 }
 

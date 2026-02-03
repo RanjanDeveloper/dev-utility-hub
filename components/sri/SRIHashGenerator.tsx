@@ -6,8 +6,7 @@ import SRIForm from "./SRIForm"
 import HashCard from "./HashCard"
 import HashSkeleton from "./HashSkeleton"
 import { buildSnippet } from "@/lib/sri"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import BackToTools from "@/components/common/BackToTools"
 
 export default function SRIHashGenerator() {
   const [url, setUrl] = useState("")
@@ -76,16 +75,7 @@ export default function SRIHashGenerator() {
   bg-white dark:bg-zinc-900
   border-zinc-200 dark:border-zinc-800"
     >
-      <Link
-        href="/dashboard"
-        className="flex items-center gap-2 text-sm 
-    text-zinc-500 dark:text-zinc-400 
-    hover:text-zinc-800 dark:hover:text-zinc-200 
-    transition w-fit"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span>Back to Tools</span>
-      </Link>
+      <BackToTools />
 
       <h1 className="text-3xl font-semibold text-center">SRI Hash Generator</h1>
 

@@ -61,14 +61,23 @@ export default function HashCard({
 
       {/* Code */}
       {highlighted ? (
-        <div
-          className="rounded-md border p-5 bg-zinc-50 dark:bg-zinc-950"
-          dangerouslySetInnerHTML={{ __html: highlighted }}
-        />
+        <>
+          <div
+            className="p-3 rounded-md border text-sm bg-zinc-50 "
+            dangerouslySetInnerHTML={{ __html: highlighted }}
+          />
+          <div className="shiki p-3">
+            <pre className="rounded-md border  text-sm bg-zinc-50  text-zinc-800 overflow-auto">
+              {snippet}
+            </pre>
+          </div>
+        </>
       ) : (
-        <pre className="rounded-md border p-5 text-sm bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 overflow-auto">
-          {snippet}
-        </pre>
+        <div className="p-3">
+          <pre className="rounded-md border  text-sm bg-zinc-50  text-zinc-800 dark:text-zinc-200 overflow-auto">
+            {snippet}
+          </pre>
+        </div>
       )}
     </Card>
   )
