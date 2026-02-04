@@ -13,4 +13,11 @@ export const tools = [
     icon: "braces",
     path: "/tools/json",
   },
+  {
+    id: "jwt",
+    name: "JWT Decoder & Validator",
+    description: "Decode JWTs and validate claims or signatures",
+    icon: "key-round",
+    path: "/tools/jwt",
+  },
 ]
