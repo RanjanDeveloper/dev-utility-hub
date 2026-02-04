@@ -130,45 +130,69 @@
   }
 
 }
-/* Shiki code block wrapping */
-.shiki,
-.shiki pre {
-      
-  overflow-x: auto !important;      
-  overflow-y: hidden;
-  @apply bg-zinc-50! rounded-md!;
+/* Base Shiki skin */
+.shiki-base,
+.shiki-base pre {
+  @apply bg-zinc-50! rounded-md text-sm text-zinc-800;
+  overflow: visible;
 }
 
-/* Optional: nicer line height */
-.shiki code {
+.shiki-base code {
   line-height: 1.6;
 }
 
-/* ===== SHIKI LINE NUMBERS (FIXED) ===== */
-
-.shiki {
+.shiki-lines {
   counter-reset: shiki-line;
   white-space: pre;
 }
 
-.shiki .line {
-  @apply relative pl-14 leading-relaxed;
+.shiki-lines .line {
+  @apply relative pl-14;
 }
 
-/* Line numbers */
-.shiki .line::before {
+.shiki-lines .line::before {
   counter-increment: shiki-line;
   content: counter(shiki-line);
-
-  @apply absolute left-0  pr-3 text-right select-none text-zinc-400 dark:text-zinc-500 opacity-70;
+  @apply absolute left-0 w-12 pr-2 text-right text-zinc-400 select-none;
 }
-.shiki.wrap pre{
-  @apply whitespace-pre-wrap overflow-x-hidden
-}
-.shiki.wrap .line{
-  
-  @apply pl-14;
-    text-indent: -3.5rem;
 
+.shiki-wrap pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
+.shiki-wrap:not(.no-line) .line {
+  padding-left: 3.5rem;
+  text-indent: -3.5rem;
+}
+
+.shiki-scroll pre {
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Shiki lines inside Virtuoso */
+.shiki-base .shiki-line {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: inherit;
+  overflow: visible !important; /* CRITICAL */
+}
+
+/* Wrap mode */
+.shiki-wrap .shiki-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Scroll mode */
+.shiki-scroll {
+  overflow: auto;              /* Only this scrolls */
+}
+
+.shiki-scroll .shiki-line {
+  white-space: pre;
 }
 

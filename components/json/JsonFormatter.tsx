@@ -7,7 +7,7 @@ import {
   validateJson,
   generateTypes,
   parseJsonError,
-  highlightCode
+  highlightCode,
 } from "@/lib/json"
 
 import JsonInput from "./JsonInput"
@@ -20,13 +20,13 @@ export default function JsonFormatter() {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [highlighted, setHighlighted] = useState<string | null>(null)
-const [wrap, setWrap] = useState(false)
+  const [wrap, setWrap] = useState(false)
 
   const [types, setTypes] = useState<string | null>(null)
   const [highlightedTypes, setHighlightedTypes] = useState<string | null>(null)
 
   const [error, setError] = useState<ReturnType<typeof parseJsonError> | null>(
-    null
+    null,
   )
   const [valid, setValid] = useState<boolean | null>(null)
   const [copied, setCopied] = useState(false)
@@ -42,47 +42,47 @@ const [wrap, setWrap] = useState(false)
     setValid(null)
     setCopied(false)
   }
-const MAX_HIGHLIGHT_SIZE = 300_000 // 300 KB
+  const MAX_HIGHLIGHT_SIZE = 300_000 // 300 KB
+  const isEmpty = input.trim().length === 0
   /* ---------------- FORMAT ---------------- */
-const onFormat = async () => {
-  try {
-    const formatted = formatJson(input)
-    setOutput(formatted)
-    setValid(null)
-    setError(null)
+  const onFormat = async () => {
+    try {
+      const formatted = formatJson(input)
+      setOutput(formatted)
+      setValid(null)
+      setError(null)
 
-    if (formatted.length < MAX_HIGHLIGHT_SIZE) {
-      const html = await highlightCode(formatted, "jsonc")
-      setHighlighted(html)
-    } else {
-      setHighlighted(null) // Use raw view
-    }
-  } catch (err) {
-    setError(parseJsonError(err, input))
-    setHighlighted(null)
-  }
-}
-
-  /* ---------------- MINIFY ---------------- */
-const onMinify = async () => {
-  try {
-    const min = minifyJson(input)
-    setOutput(min)
-    setValid(null)
-    setError(null)
-
-    if (min.length < MAX_HIGHLIGHT_SIZE) {
-      const html = await highlightCode(min, "jsonc")
-      setHighlighted(html)
-    } else {
+      if (formatted.length < MAX_HIGHLIGHT_SIZE) {
+        const html = await highlightCode(formatted, "jsonc")
+        setHighlighted(html)
+      } else {
+        setHighlighted(null) // Use raw view
+      }
+    } catch (err) {
+      setError(parseJsonError(err, input))
       setHighlighted(null)
     }
-  } catch (err) {
-    setError(parseJsonError(err, input))
-    setHighlighted(null)
   }
-}
 
+  /* ---------------- MINIFY ---------------- */
+  const onMinify = async () => {
+    try {
+      const min = minifyJson(input)
+      setOutput(min)
+      setValid(null)
+      setError(null)
+
+      if (min.length < MAX_HIGHLIGHT_SIZE) {
+        const html = await highlightCode(min, "jsonc")
+        setHighlighted(html)
+      } else {
+        setHighlighted(null)
+      }
+    } catch (err) {
+      setError(parseJsonError(err, input))
+      setHighlighted(null)
+    }
+  }
 
   /* ---------------- VALIDATE ---------------- */
   const onValidate = () => {
@@ -98,23 +98,22 @@ const onMinify = async () => {
   }
 
   /* ---------------- TYPESCRIPT TYPES ---------------- */
-const onTypes = async () => {
-  try {
-    const ts = generateTypes(JSON.parse(input))
-    setTypes(ts)
-    setError(null)
+  const onTypes = async () => {
+    try {
+      const ts = generateTypes(JSON.parse(input))
+      setTypes(ts)
+      setError(null)
 
-    if (ts.length < MAX_HIGHLIGHT_SIZE) {
-      const html = await highlightCode(ts, "ts")
-      setHighlightedTypes(html)
-    } else {
-      setHighlightedTypes(null)
+      if (ts.length < MAX_HIGHLIGHT_SIZE) {
+        const html = await highlightCode(ts, "ts")
+        setHighlightedTypes(html)
+      } else {
+        setHighlightedTypes(null)
+      }
+    } catch (err) {
+      setError(parseJsonError(err, input))
     }
-  } catch (err) {
-    setError(parseJsonError(err, input))
   }
-}
-
 
   /* ---------------- UI ---------------- */
   return (
@@ -125,6 +124,7 @@ const onTypes = async () => {
         onFormat={onFormat}
         onMinify={onMinify}
         onValidate={onValidate}
+        disabled={isEmpty}
       />
 
       {/* ---------- ERROR ---------- */}
@@ -178,7 +178,7 @@ const onTypes = async () => {
           html={highlighted}
           copied={copied}
           wrap={wrap}
-  onToggleWrap={setWrap}
+          onToggleWrap={setWrap}
           onCopy={() => {
             navigator.clipboard.writeText(output)
             setCopied(true)
@@ -189,12 +189,7 @@ const onTypes = async () => {
       )}
 
       {/* ---------- TYPES ---------- */}
-      {types && (
-        <JsonTypes
-          types={types}
-          html={highlightedTypes}
-        />
-      )}
+      {types && <JsonTypes types={types} html={highlightedTypes} />}
     </div>
   )
 }

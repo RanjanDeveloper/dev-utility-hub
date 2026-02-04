@@ -2,6 +2,7 @@
 
 import { Virtuoso } from "react-virtuoso"
 import { useMemo } from "react"
+import { cn } from "@/lib/utils"
 
 type Props = {
   text: string
@@ -12,14 +13,15 @@ export default function VirtualCode({ text, wrap }: Props) {
   const lines = useMemo(() => text.split("\n"), [text])
 
   return (
-    <div className="h-125 overflow-hidden  rounded-md">
+    <div className={cn(
+    "h-125 rounded-md shiki-base",
+    wrap ? "shiki-wrap" : "shiki-scroll"
+  )}>
       <Virtuoso
         totalCount={lines.length}
         itemContent={(index) => (
           <pre
-              className={`flex-1 ${
-                wrap ? "whitespace-pre-wrap break-all" : "whitespace-pre"
-              }`}
+              className="shiki-line"
             >
             {lines[index]}
           </pre>
