@@ -7,6 +7,7 @@ type Props = {
   onFormat: () => void
   onMinify: () => void
   onValidate: () => void
+  disabled: boolean
 }
 
 export default function JsonInput({
@@ -15,6 +16,7 @@ export default function JsonInput({
   onFormat,
   onMinify,
   onValidate,
+  disabled,
 }: Props) {
   return (
     <Card className="p-4 bg-zinc-50 dark:bg-zinc-950">
@@ -26,11 +28,11 @@ export default function JsonInput({
       />
 
       <div className="mt-4 flex gap-2">
-        <Button onClick={onFormat}>Format</Button>
-        <Button variant="secondary" onClick={onMinify}>
+        <Button disabled={disabled} onClick={onFormat}>Format</Button>
+        <Button disabled={disabled} variant="secondary" onClick={onMinify}>
           Minify
         </Button>
-        <Button variant="outline" onClick={onValidate}>
+        <Button disabled={disabled} variant="outline" onClick={onValidate}>
           Validate
         </Button>
       </div>

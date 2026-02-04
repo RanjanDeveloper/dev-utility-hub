@@ -10,7 +10,7 @@
       <Card className="p-4 bg-zinc-50 dark:bg-zinc-950">
         {html ? (
           <div
-            className="shiki p-3 text-sm"
+            className="shiki-base shiki-scroll"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         ) : (

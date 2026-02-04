@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Copy, Check } from "lucide-react"
 import VirtualCode from "@/components/VirtualCode"
+import { cn } from "@/lib/utils"
 type Props = {
   html: string | null
   raw: string
@@ -30,14 +31,17 @@ export default function JsonOutput({
       {/* OUTPUT */}
       <div className="rounded-md  text-sm">
         {html ? (
-         <div className="max-h-75 overflow-auto">
-           <div
-            className={`shiki p-3 ${wrap ? "wrap" : ""}`}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-         </div>
+          <div className="max-h-75 overflow-auto">
+            <div
+              className={cn(
+                "shiki-base shiki-lines",
+                wrap ? "shiki-wrap" : "shiki-scroll",
+              )}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </div>
         ) : (
-          <VirtualCode text={raw} wrap={wrap}/>
+          <VirtualCode text={raw} wrap={wrap} />
         )}
       </div>
 
