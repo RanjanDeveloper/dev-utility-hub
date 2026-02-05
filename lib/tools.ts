@@ -1,4 +1,14 @@
-export const tools = [
+export type ToolIconKey = "shield-check" | "key-round" | "paintbrush" | "braces"
+
+export type ToolDefinition = {
+  id: string
+  name: string
+  description: string
+  icon: ToolIconKey
+  path: string
+}
+
+export const tools: ToolDefinition[] = [
   {
     id: "sri",
     name: "SRI Hash Generator",
