@@ -20,9 +20,9 @@ export function ToolCard({ tool }: ToolCardProps) {
   const Icon = iconMap[tool.icon]
 
   return (
-    <Link href={tool.path} className="focus-visible:outline-none">
+    <Link href={tool.path} className="focus-visible:outline-none block h-full">
       <Card
-        className="p-6 cursor-pointer transition
+        className="h-full p-6 cursor-pointer transition flex flex-col
     bg-white dark:bg-zinc-900
     border border-zinc-200 dark:border-zinc-800
     shadow-sm hover:shadow-md
