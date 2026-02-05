@@ -1,4 +1,9 @@
-export type ToolIconKey = "shield-check" | "key-round" | "paintbrush" | "braces"
+export type ToolIconKey =
+  | "shield-check"
+  | "key-round"
+  | "paintbrush"
+  | "braces"
+  | "image"
 
 export type ToolDefinition = {
   id: string
@@ -29,6 +34,13 @@ export const tools: ToolDefinition[] = [
     description: "Format, validate and generate TypeScript from JSON",
     icon: "braces",
     path: "/tools/json",
+  },
+  {
+    id: "image-data-uri",
+    name: "Image ⇄ Data URI / Base64 Toolkit",
+    description: "Convert images, Base64 strings, text, and data URIs",
+    icon: "image",
+    path: "/tools/image-data-uri",
   },
   {
     id: "jwt",

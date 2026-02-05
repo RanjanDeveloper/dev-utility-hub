@@ -12,6 +12,10 @@ It is designed to be fast, clean, secure, and easy to use — a single place for
   - Generate `sha256`, `sha384`, and `sha512` hashes
   - Automatically builds correct `<script>` and `<link>` tags
   - Supports JavaScript, CSS, WASM, and font files
+- 🖼️ **Image ⇄ Data URI / Base64 Toolkit**
+  - Convert images to data URIs or raw Base64
+  - Decode Base64 back into images or UTF-8 text
+  - Extract MIME, Base64 payload, and size estimates from data URIs
 - 🌗 **Dark / Light Mode**
 - ⚡ **Fast & Secure**
 - 🎯 **Modern UI using ShadCN**
