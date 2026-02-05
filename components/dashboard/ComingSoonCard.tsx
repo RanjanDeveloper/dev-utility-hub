@@ -5,7 +5,7 @@ export function ComingSoonCard() {
   return (
     <Card
       className="
-    p-6 cursor-default transition
+    h-full p-6 cursor-default transition
     bg-white dark:bg-zinc-900
     border border-dashed border-zinc-200 dark:border-zinc-700
     shadow-sm
