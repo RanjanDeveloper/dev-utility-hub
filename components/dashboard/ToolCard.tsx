@@ -1,6 +1,6 @@
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
-import { Braces, KeyRound, Paintbrush, ShieldCheck } from "lucide-react"
+import { Braces, Image, KeyRound, Paintbrush, ShieldCheck } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import type { ToolDefinition, ToolIconKey } from "@/lib/tools"
 
@@ -9,6 +9,7 @@ const iconMap: Record<ToolIconKey, LucideIcon> = {
   "key-round": KeyRound,
   paintbrush: Paintbrush,
   braces: Braces,
+  image: Image,
 }
 
 type ToolCardProps = {
