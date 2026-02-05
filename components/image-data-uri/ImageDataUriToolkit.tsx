@@ -112,8 +112,8 @@ const dataUriTasks: Array<{
 type ImageUploadPanelProps = {
   dragActive: boolean
   imageError: string
-  onDrop: (event: React.DragEvent<HTMLDivElement>) => void
-  onDragOver: (event: React.DragEvent<HTMLDivElement>) => void
+  onDrop: (event: React.DragEvent<HTMLElement>) => void
+  onDragOver: (event: React.DragEvent<HTMLElement>) => void
   onDragLeave: () => void
   onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -227,7 +227,7 @@ export default function ImageDataUriToolkit() {
     }
   }
 
-  const onDrop = async (event: React.DragEvent<HTMLDivElement>) => {
+  const onDrop = async (event: React.DragEvent<HTMLElement>) => {
     event.preventDefault()
     setDragActive(false)
     const file = event.dataTransfer.files?.[0]
@@ -236,7 +236,7 @@ export default function ImageDataUriToolkit() {
     }
   }
 
-  const onDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+  const onDragOver = (event: React.DragEvent<HTMLElement>) => {
     event.preventDefault()
     setDragActive(true)
   }
