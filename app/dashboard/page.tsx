@@ -1,11 +1,19 @@
 import { tools } from "@/lib/tools"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
-import { ShieldCheck, Wrench, Plus, LucideIcon, KeyRound } from "lucide-react"
+import {
+  ShieldCheck,
+  Wrench,
+  Plus,
+  LucideIcon,
+  KeyRound,
+  Paintbrush,
+} from "lucide-react"
 
 const icons: Record<string, LucideIcon> = {
   "shield-check": ShieldCheck,
   "key-round": KeyRound,
+  paintbrush: Paintbrush,
 }
 
 export default function Dashboard() {

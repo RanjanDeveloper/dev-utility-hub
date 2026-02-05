@@ -7,6 +7,13 @@ export const tools = [
     path: "/tools/sri",
   },
   {
+    id: "css",
+    name: "CSS Minifier & Unminifier",
+    description: "Minify, unminify, and inspect CSS for common smells",
+    icon: "paintbrush",
+    path: "/tools/css",
+  },
+  {
     id: "json",
     name: "JSON Formatter",
     description: "Format, validate and generate TypeScript from JSON",
