@@ -7,7 +7,6 @@ import type { ToolDefinition, ToolIconKey } from "@/lib/tools"
 const iconMap: Record<ToolIconKey, LucideIcon> = {
   "shield-check": ShieldCheck,
   "key-round": KeyRound,
-  paintbrush: Paintbrush,
   braces: Braces,
   image: Image,
 }
