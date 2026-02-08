@@ -1,7 +1,6 @@
 export type ToolIconKey =
   | "shield-check"
   | "key-round"
-  | "paintbrush"
   | "braces"
   | "image"
 
@@ -20,13 +19,6 @@ export const tools: ToolDefinition[] = [
     description: "Generate SRI hashes for CDN resources",
     icon: "shield-check",
     path: "/tools/sri",
-  },
-  {
-    id: "css",
-    name: "CSS Minifier & Unminifier",
-    description: "Minify, unminify, and inspect CSS for common smells",
-    icon: "paintbrush",
-    path: "/tools/css",
   },
   {
     id: "json",
