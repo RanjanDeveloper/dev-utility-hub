@@ -12,11 +12,7 @@ It is designed to be fast, clean, secure, and easy to use — a single place for
   - Generate `sha256`, `sha384`, and `sha512` hashes
   - Automatically builds correct `<script>` and `<link>` tags
   - Supports JavaScript, CSS, WASM, and font files
-- 🎨 **CSS Minifier & Unminifier**
-  - Minify or unminify CSS with a single action
-  - Diff view to compare input/output changes
-  - CSS smell analysis with warnings and error checks
-  - Size stats for input and output payloads
+
 - 🧾 **JSON Formatter**
   - Format and minify JSON with syntax highlighting
   - Validate JSON with precise error locations
@@ -37,18 +33,6 @@ It is designed to be fast, clean, secure, and easy to use — a single place for
 
 More tools will be added over time.
 
----
-
-## 🧱 Tech Stack
-
-- **Framework:** Next.js (App Router)
-- **UI:** Tailwind CSS + ShadCN UI
-- **Icons:** Lucide
-- **Syntax Highlighting:** Shiki
-- **Theme:** next-themes
-- **Hashing:** Node.js Crypto API
-
----
 
 ## 🚀 Getting Started
 
@@ -108,15 +92,6 @@ Dev Utility Hub provides a **modern, developer-first** experience for security a
 
 ---
 
-## 🛣 Roadmap
-
-- ✔ SRI Generator  
-- ⏳ CSP Generator  
-- ⏳ Hash tools  
-- ⏳ URL utilities  
-- ⏳ API testers  
-
----
 
 ## ⭐ Support
 
