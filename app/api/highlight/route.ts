@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   if (!highlighter) {
     highlighter = await createHighlighter({
       themes: ["github-light", "github-dark"],
-      langs: ["html", "jsonc", "js", "ts", "css"],
+      langs: ["html", "jsonc", "js", "ts", "css", "sql"],
     })
   }
 
