@@ -3,6 +3,7 @@ export type ToolIconKey =
   | "key-round"
   | "braces"
   | "image"
+  | "database"
 
 export type ToolDefinition = {
   id: string
@@ -33,6 +34,13 @@ export const tools: ToolDefinition[] = [
     description: "Convert images, Base64 strings, text, and data URIs",
     icon: "image",
     path: "/tools/image-data-uri",
+  },
+  {
+    id: "tsql",
+    name: "T-SQL Formatter",
+    description: "Format SQL Server scripts with aligned enterprise styling",
+    icon: "database",
+    path: "/tools/tsql",
   },
   {
     id: "jwt",
