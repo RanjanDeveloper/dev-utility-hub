@@ -1,3 +1,5 @@
+import { highlightCode as sharedHighlightCode } from "@/lib/highlight"
+
 type HighlightRequest = {
   code: string
   lang: "jsonc" | "ts"
@@ -5,16 +7,7 @@ type HighlightRequest = {
 
 export async function highlightCode(
   code: string,
-  lang: HighlightRequest["lang"]
+  lang: HighlightRequest["lang"],
 ): Promise<string> {
-  const payload: HighlightRequest = { code, lang }
-
-  const res = await fetch("/api/highlight", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  })
-
-  const data: { html: string } = await res.json()
-  return data.html
+  return sharedHighlightCode(code, lang)
 }
